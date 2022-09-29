@@ -5,6 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "plugins": [
+      "react-native-v8"
+    ],
+    "android": {
+      "package": "com.jonlemofficial.myrnv8app"
+    }
   }
 }

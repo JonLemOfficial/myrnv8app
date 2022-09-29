@@ -1,4 +1,4 @@
-package com.myrnv8app.newarchitecture.modules;
+package com.jonlemofficial.myrnv8app.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

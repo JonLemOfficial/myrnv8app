@@ -143,11 +143,11 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.myrnv8app"
+        applicationId 'com.jonlemofficial.myrnv8app'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
@@ -238,6 +238,15 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
@@ -246,7 +255,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -266,6 +275,11 @@ android {
 
         }
     }
+
+    // packagingOptions {
+    //     // Make sure libjsc.so does not packed in APK
+    //     exclude "**/libjsc.so"
+    // }
 }
 
 // Apply static values from `gradle.properties` to the `android.packagingOptions`
@@ -374,3 +388,20 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+
+// @generated begin react-native-v8 - expo prebuild (DO NOT MODIFY) sync-82a32619f78958d84e700d6fd28589aa422b6a61
+
+android {
+    androidComponents {
+        onVariants(selector().withBuildType('release')) {
+            packaging.jniLibs.excludes.add('**/**/libjsc*')
+            packaging.jniLibs.excludes.add('**/**/libhermes*')
+        }
+
+        onVariants(selector().withBuildType('debug')) {
+            packaging.jniLibs.excludes.add('**/**/libjsc*')
+            packaging.jniLibs.excludes.add('**/**/libhermes*')
+        }
+    }
+}
+// @generated end react-native-v8

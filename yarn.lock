@@ -5329,6 +5329,11 @@ react-native-gradle-plugin@^0.0.7:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.7.tgz#96602f909745239deab7b589443f14fce5da2056"
   integrity sha512-+4JpbIx42zGTONhBTIXSyfyHICHC29VTvhkkoUOJAh/XHPEixpuBduYgf6Y4y9wsN1ARlQhBBoptTvXvAFQf5g==
 
+react-native-v8@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-v8/-/react-native-v8-1.5.1.tgz#d6e4abe6e0da794f79e377c595eca382bd459296"
+  integrity sha512-tbiwxhJTI9svJ5PEiAGnJ2/nA7ejDVIJARDOayBMwgKWFNTw/cwlx4E7xr8cOaehgd2C7kovZWdT/kziDYvP2g==
+
 react-native-web@~0.18.7:
   version "0.18.9"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.18.9.tgz#f5032e0b32ebe99c0ab22d13dbd8ca2944b08f12"
@@ -6482,6 +6487,11 @@ uuid@^8.0.0, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+v8-android-jit-nointl@^10.100.1:
+  version "10.100.1"
+  resolved "https://registry.yarnpkg.com/v8-android-jit-nointl/-/v8-android-jit-nointl-10.100.1.tgz#f59d96ddc434cc0f5c2c4f9fe20b8d14fe6378ac"
+  integrity sha512-PvDV2T2is2JhBabEftobMxLkZXwzQr6xRgZ17POgdtkIEe88MErwFmE+GvDDG1a1dLwxEHDhC39D2tl6We5QMQ==
 
 valid-url@~1.0.9:
   version "1.0.9"

@@ -1,4 +1,4 @@
-package com.myrnv8app.newarchitecture;
+package com.jonlemofficial.myrnv8app.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.myrnv8app.BuildConfig;
-import com.myrnv8app.newarchitecture.components.MainComponentsRegistry;
-import com.myrnv8app.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.jonlemofficial.myrnv8app.BuildConfig;
+import com.jonlemofficial.myrnv8app.newarchitecture.components.MainComponentsRegistry;
+import com.jonlemofficial.myrnv8app.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

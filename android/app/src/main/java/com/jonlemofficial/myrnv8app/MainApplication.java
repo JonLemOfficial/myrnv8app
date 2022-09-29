@@ -1,4 +1,4 @@
-package com.myrnv8app;
+package com.jonlemofficial.myrnv8app;
 
 import android.app.Application;
 import android.content.Context;
@@ -11,8 +11,10 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.config.ReactFeatureFlags;
+import com.facebook.react.bridge.JavaScriptExecutorFactory;
+import com.facebook.react.modules.systeminfo.AndroidInfoHelpers;
 import com.facebook.soloader.SoLoader;
-import com.myrnv8app.newarchitecture.MainApplicationReactNativeHost;
+import com.jonlemofficial.myrnv8app.newarchitecture.MainApplicationReactNativeHost;
 
 import expo.modules.ApplicationLifecycleDispatcher;
 import expo.modules.ReactNativeHostWrapper;
@@ -20,10 +22,12 @@ import expo.modules.ReactNativeHostWrapper;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import io.csie.kudo.reactnative.v8.executor.V8ExecutorFactory;
+
 public class MainApplication extends Application implements ReactApplication {
-  private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(
-    this,
-    new ReactNativeHost(this) {
+  
+  private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(this, new ReactNativeHost(this) {
+    
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -40,12 +44,25 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected String getJSMainModuleName() {
-      return "index";
+      return "src/index";
     }
+
+    @Override
+    protected JavaScriptExecutorFactory getJavaScriptExecutorFactory() {
+      return new V8ExecutorFactory(
+        getApplicationContext(),
+        getPackageName(),
+        AndroidInfoHelpers.getFriendlyDeviceName(),
+        getUseDeveloperSupport()
+      );
+    }
+
   });
 
-  private final ReactNativeHost mNewArchitectureNativeHost =
-      new ReactNativeHostWrapper(this, new MainApplicationReactNativeHost(this));
+  private final ReactNativeHost mNewArchitectureNativeHost = new ReactNativeHostWrapper(
+    this,
+    new MainApplicationReactNativeHost(this)
+  );
 
   @Override
   public ReactNativeHost getReactNativeHost() {
@@ -81,14 +98,16 @@ public class MainApplication extends Application implements ReactApplication {
    * @param reactInstanceManager
    */
   private static void initializeFlipper(
-      Context context, ReactInstanceManager reactInstanceManager) {
+      Context context,
+      ReactInstanceManager reactInstanceManager
+  ) {
     if (BuildConfig.DEBUG) {
       try {
         /*
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.myrnv8app.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.jonlemofficial.myrnv8app.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

@@ -1,4 +1,4 @@
-package com.myrnv8app.newarchitecture.components;
+package com.jonlemofficial.myrnv8app.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;
